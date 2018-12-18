@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class StartPage extends StatefulWidget{
-  StartPage({Key key, this.title}) : super(key: key);
+class NavListPage extends StatefulWidget{
+  NavListPage({Key key, this.title}) : super(key: key);
   // 声明变量
   final String title;
 
   @override
-  _StartPageState createState() => _StartPageState();
+  _NavListPageState createState() => _NavListPageState();
 }
 
-class _StartPageState extends State<StartPage>{
+class _NavListPageState extends State<NavListPage>{
 
   @override
   Widget build(BuildContext context){
@@ -22,6 +22,17 @@ class _StartPageState extends State<StartPage>{
       body: Container(
         child: Text('我是测试'),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            title: Text('基础'),
+            icon: Icon(Icons.subject,color: Colors.green,)
+          ),
+          BottomNavigationBarItem(
+            title: Text('页面'),icon: Icon(Icons.view_week,color: Colors.green,)
+          )
+        ],
+      )
     );
   }
 }
