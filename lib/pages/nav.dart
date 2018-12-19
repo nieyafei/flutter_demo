@@ -1,4 +1,13 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+class Nav {
+  String title;
+  String path;
+  Nav(this.title,this.path);
+}
+/* var listData = new List<Nav>();
+listData.add('1','2'); */
 
 class NavListPage extends StatefulWidget{
   NavListPage({Key key, this.title}) : super(key: key);
@@ -10,7 +19,11 @@ class NavListPage extends StatefulWidget{
 }
 
 class _NavListPageState extends State<NavListPage>{
-
+  int _currentIndex = 0;
+  var _pageList = [
+    BasicNavComp(),
+    PageNavComp()
+  ];
   @override
   Widget build(BuildContext context){
     return Scaffold(
@@ -19,20 +32,87 @@ class _NavListPageState extends State<NavListPage>{
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Container(
-        child: Text('我是测试'),
-      ),
+      body: _pageList[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            title: Text('基础'),
-            icon: Icon(Icons.subject,color: Colors.green,)
+            title: new Text('基础'),
+            icon: Icon(Icons.subject,color: _currentIndex == 0?Colors.blue:Colors.black26,)
           ),
           BottomNavigationBarItem(
-            title: Text('页面'),icon: Icon(Icons.view_week,color: Colors.green,)
+            title: new Text('页面'),
+            icon: Icon(Icons.view_week,color: _currentIndex == 1?Colors.blue:Colors.black26,)
           )
         ],
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState((){
+            _currentIndex = index;
+          });
+        },
       )
+    );
+  }
+}
+
+/* 基础nav */
+class BasicNavComp extends StatefulWidget{
+  BasicNavComp({Key key}):super(key: key);
+  @override
+  __BasicNavCompState createState() => __BasicNavCompState();
+}
+
+class __BasicNavCompState extends State<BasicNavComp>{
+  var _items = [];
+
+  @override
+  void initState() {
+    super.initState();
+    /* final listData = json.decode({
+      "result": [
+        {"title": "1", "path": "home"},
+        {"title": "2", "path": "home"}
+      ]
+    }.toString()); */
+    var item = [];
+    /* listData['result'].forEach((res) {
+      item.add(Nav(res.title,res.path));
+    }); */
+    item.add(Nav('ceshi4','home'));
+    item.add(Nav('ceshi2','home'));
+    item.add(Nav('ceshi3','home'));
+    setState(() {
+      _items = item;      
+    });
+  }
+
+  @override
+  Widget build(BuildContext context){
+    return new ListView.builder(
+      itemCount: _items.length,
+      itemBuilder: (context, index) {
+        return new ListTile(
+          title: new Text(_items[index].title),
+        );
+      },
+    );
+  }
+}
+/* demo nav */
+class PageNavComp extends StatefulWidget{
+  PageNavComp({Key key}):super(key: key);
+  @override
+  _PageNavCompState createState() => _PageNavCompState();
+}
+
+class _PageNavCompState extends State<PageNavComp>{
+
+  @override
+  Widget build(BuildContext context){
+    return new Column(
+      children: <Widget>[
+        Text('页面')
+      ],
     );
   }
 }
