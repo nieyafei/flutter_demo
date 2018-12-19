@@ -78,9 +78,10 @@ class __BasicNavCompState extends State<BasicNavComp>{
     /* listData['result'].forEach((res) {
       item.add(Nav(res.title,res.path));
     }); */
-    item.add(Nav('ceshi4','home'));
-    item.add(Nav('ceshi2','home'));
-    item.add(Nav('ceshi3','home'));
+    item.add(Nav('主题','home'));
+    item.add(Nav('头部导航','home'));
+    item.add(Nav('尾部导航','home'));
+    item.add(Nav('图标Icon','/icon'));
     setState(() {
       _items = item;      
     });
@@ -91,9 +92,22 @@ class __BasicNavCompState extends State<BasicNavComp>{
     return new ListView.builder(
       itemCount: _items.length,
       itemBuilder: (context, index) {
-        return new ListTile(
-          title: new Text(_items[index].title),
-        );
+        return new Container(
+          color: Colors.white,
+          child: new Column(
+            children: <Widget>[
+              new ListTile(
+                title: new Text(_items[index].title),
+                trailing: Icon(Icons.keyboard_arrow_right),
+                onTap: (){
+                  Navigator.pushNamed(context, '/icon');
+                },
+              ),
+              new Divider(color: Colors.black,height: 1.0)
+            ],
+          ),
+          margin: EdgeInsets.all(0),
+        ); 
       },
     );
   }
