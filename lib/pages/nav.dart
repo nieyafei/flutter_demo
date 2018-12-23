@@ -82,6 +82,7 @@ class __BasicNavCompState extends State<BasicNavComp>{
     item.add(Nav('头部导航','home'));
     item.add(Nav('尾部导航','home'));
     item.add(Nav('图标Icon','/icon'));
+    item.add(Nav('Table','/table'));
     setState(() {
       _items = item;      
     });
