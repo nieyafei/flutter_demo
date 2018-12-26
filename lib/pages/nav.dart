@@ -78,7 +78,7 @@ class __BasicNavCompState extends State<BasicNavComp>{
     /* listData['result'].forEach((res) {
       item.add(Nav(res.title,res.path));
     }); */
-    item.add(Nav('主题','/theme'));
+    item.add(Nav('主题颜色','/theme'));
     item.add(Nav('头部导航','home'));
     item.add(Nav('尾部导航','home'));
     item.add(Nav('图标Icon','/icon'));
