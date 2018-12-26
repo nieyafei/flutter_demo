@@ -78,7 +78,7 @@ class __BasicNavCompState extends State<BasicNavComp>{
     /* listData['result'].forEach((res) {
       item.add(Nav(res.title,res.path));
     }); */
-    item.add(Nav('主题','home'));
+    item.add(Nav('主题','/theme'));
     item.add(Nav('头部导航','home'));
     item.add(Nav('尾部导航','home'));
     item.add(Nav('图标Icon','/icon'));
@@ -103,7 +103,7 @@ class __BasicNavCompState extends State<BasicNavComp>{
                 title: new Text(_items[index].title),
                 trailing: Icon(Icons.keyboard_arrow_right),
                 onTap: (){
-                  Navigator.pushNamed(context, '/icon');
+                  Navigator.pushNamed(context, _items[index].path);
                 },
               ),
               new Divider(color: Colors.black,height: 1.0)
