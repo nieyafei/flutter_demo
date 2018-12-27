@@ -53,7 +53,7 @@ class _ThemePageState extends State<ThemePage>{
             ListWidget(),
             new RaisedButton(
               onPressed: _changeColor,
-              child: Text('随机改变颜色'),
+              child: Text('点击随机改变颜色'),
               color: Color(_themeColor),
               textColor: Colors.white,
             )
