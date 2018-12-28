@@ -84,7 +84,8 @@ class __BasicNavCompState extends State<BasicNavComp>{
     item.add(Nav('图标Icon','/icon'));
     item.add(Nav('Table','/table'));
     item.add(Nav('Flex布局','/flex'));
-    item.add(Nav('Flex布局','/flex'));
+    item.add(Nav('Row布局','/flex'));
+    item.add(Nav('Column布局','/flex'));
     setState(() {
       _items = item;      
     });

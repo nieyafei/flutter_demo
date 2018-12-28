@@ -13,7 +13,7 @@ class RoutePage {
         return IconPage(title: 'Flutter图标');
       },
       THEME_PAGE: (BuildContext context) {
-        return ThemePage(title: 'Flutter 主题');
+        return ThemePage(title: 'Flutter主题');
       }
     };
 
